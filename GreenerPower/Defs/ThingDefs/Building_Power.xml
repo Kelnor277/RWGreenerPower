@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Buildings>
+
+
+  <ThingDef Name="BuildingBase" Abstract="True">
+    <category>Building</category>
+    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+    <selectable>true</selectable>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <repairEffect>Repair</repairEffect>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <filthLeaving>BuildingRubble</filthLeaving>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>AutoSwitch</defName>
+    <eType>Building_PowerConduit</eType>
+    <label>auto power switch</label>
+    <thingClass>GreenerPower.AutoSwitch</thingClass>
+    <category>Building</category>
+    <description>Switches power on/off.</description>
+    <graphicPath>Things/Building/Power/PowerSwitch_On</graphicPath>
+    <graphicClass>Graphic_Single</graphicClass>
+    <shaderType>Transparent</shaderType>
+    <building>
+      <ignoreNeedsPower>true</ignoreNeedsPower>
+      <isEdifice>true</isEdifice>
+      <allowWireConnection>false</allowWireConnection>
+    </building>
+    <altitudeLayer>Waist</altitudeLayer>
+    <passability>Standable</passability>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <statBases>
+      <MaxHealth>120</MaxHealth>
+      <WorkToMake>200</WorkToMake>
+      <Flammability>0.4</Flammability>
+      <Beauty>-2</Beauty>
+    </statBases>
+    <inspectorTabs>
+      <li>GreenerPower.ITab_Power</li>
+    </inspectorTabs>
+    <placingDraggableDimensions>0</placingDraggableDimensions>
+    <costList>
+      <Steel>25</Steel>
+    </costList>
+    <comps>
+      <li>
+        <compClass>CompPowerTransmitter</compClass>
+        <transmitsPower>true</transmitsPower>
+      </li>
+    </comps>
+    <rotatable>false</rotatable>
+    <selectable>true</selectable>
+    <neverMultiSelect>false</neverMultiSelect>
+    <tickerType>Normal</tickerType>
+    <designationCategory>Power</designationCategory>
+    <constructEffect>ConstructMetal</constructEffect>
+  </ThingDef>
+ 
+</Buildings>
